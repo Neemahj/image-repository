@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import ImageForm from './components/ImageForm';
+import Modal from "react-modal"
+import { useState } from 'react';
+import DisplayPage from './components/DisplayPage';
 
 function App() {
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(true)
+  }
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header  handleOpenModal = { handleOpenModal }/>
+      <Modal isOpen= {openModal}>
+      <ImageForm handleCloseModal = {handleCloseModal} />
+      </Modal>   
+
+      <DisplayPage />
     </div>
   );
 }
