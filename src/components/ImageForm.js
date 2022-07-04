@@ -27,7 +27,7 @@ const ImageForm = ({ handleCloseModal }) => {
 
   return (
     <form method="POST" encType="multipart/form-data" onSubmit={handleUpload}>
-      <div>
+      <div className="title-field">
         <label>Image Title:</label>
         <input
           type="text"
@@ -38,7 +38,7 @@ const ImageForm = ({ handleCloseModal }) => {
         />
       </div>
 
-      <div>
+      <div className="image-field">
         <label>Image:</label>
         <input
           type="file"
@@ -48,7 +48,7 @@ const ImageForm = ({ handleCloseModal }) => {
           required
         />
       </div>
-      <div>
+      <div className="submit-btn">
         <button>Submit</button>
       </div>
 
